@@ -10,6 +10,29 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.css$/i,
+        exclude:  /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      }, 
+      {
+        test: /\.(jpg|png)$/i,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+      {
+        test: /\.(ttf)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   resolve: {
